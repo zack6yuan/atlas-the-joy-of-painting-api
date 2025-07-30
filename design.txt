@@ -1,0 +1,7 @@
+DESIGN DOCUMENT -- DATABASE: ETL_JOY
+
+Author: Zack Yuan
+Date: 2025-07-30
+Version: 1.0
+
+This design document creates the structure for formatting for the newly created database, ETL_JOY.
