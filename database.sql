@@ -2,7 +2,7 @@
 CREATE DATABASE ETL_JOY
 
 CREATE TABLE colors (
-    painting_index INT PRIMARY KEY,
+    painting_index INT,
     img_src VARCHAR(100),
     painting_title VARCHAR(50),
     season INT,
