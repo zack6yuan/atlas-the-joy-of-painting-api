@@ -14,6 +14,8 @@ CREATE TABLE colors (
     colors
 )
 
+INSERT INTO TABLE colors
+
 CREATE TABLE subject_matter (
     episode VARCHAR(10),
     title VARCHAR(50)
