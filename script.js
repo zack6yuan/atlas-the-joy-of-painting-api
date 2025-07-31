@@ -1,1 +1,2 @@
 #!/usr/bin/env node
+// NEED TO SORT BY COLORS, SUBJECT MATTER, AIR DATE
