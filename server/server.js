@@ -24,7 +24,7 @@ const app = express();
 let connection = mysql.createConnection({
     host: 'localhost',
     user: 'zackyuan',
-    password: 'Brodiebrodie55!',
+    password: 'ETLJoy1.0!',
     database: 'ETL_JOY'
 });
 module.exports = connection;
