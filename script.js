@@ -1,6 +1,13 @@
 #!/usr/bin/env node
-// NEED TO SORT BY COLORS, SUBJECT MATTER, AIR DATE
-const mysql = require('mysql')
+const mysql = require('mysql');
+const fs = require('fs');
+const path = require('path');
+
+const express = require('express');
+
+const app = express();
+
+// Creates a connection to the MySQL database
 
 let conn = mysql.createConnection({
     host: 'localhost',
@@ -14,3 +21,5 @@ conn.connect(function(err) {
     if (err) throw err;
     console.log("Successfully Connected")
 });
+
+
