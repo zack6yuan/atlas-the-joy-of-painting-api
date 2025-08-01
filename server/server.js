@@ -9,7 +9,7 @@
     express --> express.js framework
 */
 
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const fs = require('fs');
 const path = require('path')
 const csvParser = require('csv-parser');
@@ -24,7 +24,7 @@ const app = express();
 let connection = mysql.createConnection({
     host: 'localhost',
     user: 'zackyuan',
-    password: ' ',
+    password: 'Brodiebrodie55!',
     database: 'ETL_JOY'
 });
 module.exports = connection;
