@@ -1,38 +1,53 @@
 #!/usr/bin/env node
+
+// Server Module
+
+/*
+    mysql --> relational database management system
+    fs --> built-in file system module
+    path --> built-in path module
+    express --> express.js framework
+*/
+
 const mysql = require('mysql');
 const fs = require('fs');
-const path = require('path');
-
+const path = require('path')
+const csvParser = require('csv-parser');
 const express = require('express');
+port = 3000;
 
+// Assign instance of express to variable "app"
 const app = express();
 
 // Creates a connection to the MySQL database
 
-let conn = mysql.createConnection({
+let connection = mysql.createConnection({
     host: 'localhost',
     user: 'zackyuan',
     password: ' ',
     database: 'ETL_JOY'
 });
+module.exports = connection;
 
-module.exports = conn;
-
-conn.connect(function (err) {
-    if (err) throw err;
-    console.log("Successfully Connected")
+connection.connect(function(err) {
+    if (err) {
+        throw err;
+    } else {
+        console.log("Successfully connected to the database");
+    }
 });
 
-// Broadcasts, subject matter, color pallete
-async function createBroadcastsTable() {
-    try {
-        conn.query(`
-            CREATE TABLE IF NOT EXISTS broadcasts (
-                painting_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
-            )
-        `)
-    } catch (err) {
-        console.error(``)
-    }
+function readCSVFromColors() {
+    colors_result = []
+    fs.createReadStream("./colors.csv")
+        .pipe(csvParser())
+        .on("data", (data) => {
+            colors_result.push(data);
+        })
+        .on("end", () => {
+            console.log(colors_result)
+        })
+        .on("error", (error) => {
+            console.error(`Error: ${error}`)
+        })
 }
-createBroadcastsTable();
