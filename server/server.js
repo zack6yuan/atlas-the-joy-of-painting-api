@@ -27,6 +27,7 @@ let connection = mysql.createConnection({
     password: 'ETLJoy1.0!',
     database: 'ETL_JOY'
 });
+console.log(connection);
 module.exports = connection;
 
 connection.connect(function(err) {
