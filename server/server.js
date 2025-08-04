@@ -12,15 +12,15 @@
 const mysql = require('mysql2');
 const fs = require('fs');
 const path = require('path')
-const csvParser = require('csv-parser');
+const csv = require('csv-parser');
 const express = require('express');
 port = 3000;
 
 // Assign instance of express to variable "app"
 const app = express();
 
-// Creates a connection to the MySQL database
 
+// Creates a connection to the MySQL database
 let connection = mysql.createConnection({
     host: 'localhost',
     user: 'zackyuan',
@@ -37,17 +37,11 @@ connection.connect(function(err) {
     }
 });
 
-function readCSVFromColors() {
-    colors_result = []
-    fs.createReadStream("./colors.csv")
-        .pipe(csvParser())
-        .on("data", (data) => {
-            colors_result.push(data);
-        })
-        .on("end", () => {
-            console.log(colors_result)
-        })
-        .on("error", (error) => {
-            console.error(`Error: ${error}`)
-        })
-}
+const results = []
+
+fs.createReadStream('../data/broadcasts.csv')
+    .pipe(csv())
+    .on('data', (data) => results.push(data))
+    .on('end', () => {
+        console.log(results);
+    });
