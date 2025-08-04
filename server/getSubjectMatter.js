@@ -11,3 +11,6 @@ fs.createReadStream('../data/subject_matter.csv')
     .on('end', () => {
         console.log(results);
     });
+
+// Need to remove all the data that has a 0, 
+// the subject is not part of the episode

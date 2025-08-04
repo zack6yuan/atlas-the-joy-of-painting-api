@@ -14,20 +14,17 @@ const fs = require('fs');
 const path = require('path')
 const csv = require('csv-parser');
 const express = require('express');
-port = 3000;
 
 // Assign instance of express to variable "app"
 const app = express();
 
-
 // Creates a connection to the MySQL database
 let connection = mysql.createConnection({
-    host: 'localhost',
+    host: '127.0.0.1',
     user: 'zackyuan',
     password: 'ETLJoy1.0!',
     database: 'ETL_JOY'
 });
-console.log(connection);
 module.exports = connection;
 
 connection.connect(function(err) {
