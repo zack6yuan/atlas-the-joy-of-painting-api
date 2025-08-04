@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Get subject method
+// Get subject matter method
 const fs = require('fs');
 const csv = require('csv-parser');
 
