@@ -11,3 +11,5 @@ fs.createReadStream('../data/colors.csv')
     .on('end', () => {
         console.log(results);
     });
+
+// Need to add the logic to filter by colors
