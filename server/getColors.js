@@ -7,7 +7,15 @@ const results = []
 
 fs.createReadStream('../data/colors.csv')
     .pipe(csv())
-    .on('data', (data) => results.push(data))
+    .on('data', (data) => {
+        const entry = [
+            data.color_id,
+            data.painting_index,
+            data.painting_title,
+            data.num_colors
+        ];
+        results.push(entry)
+    })
     .on('end', () => {
         console.log(results);
     });

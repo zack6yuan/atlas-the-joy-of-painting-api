@@ -1,6 +1,4 @@
-USE ETL_JOY;
-
-LOAD DATA INFILE
-    '/Users/zackyuan/atlas-the-joy-of-painting-api-2/data/broadcasts.csv'
-INTO TABLE
-    `broadcasts`
+LOAD DATA LOCAL INFILE '/Users/zackyuan/atlas-the-joy-of-painting-api-3/data/colors.csv'
+INTO TABLE colors
+IGNORE 1 LINES
+(color_id, painting_index, painting_title, num_colors);
