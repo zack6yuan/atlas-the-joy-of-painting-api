@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS subject_matter;
 DROP TABLE IF EXISTS colors;
 
 CREATE TABLE IF NOT EXISTS broadcasts (
-    title VARCHAR(100) NOT NULL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL PRIMARY KEY,
     air_date DATE
 );
 

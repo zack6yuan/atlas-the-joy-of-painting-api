@@ -17,6 +17,7 @@ fs.createReadStream('../data/colors.csv')
         results.push(entry)
     })
     .on('end', () => {
+        console.log("'color_id', 'painting_index', 'painting_title', 'num_colors'")
         console.log(results);
     });
 

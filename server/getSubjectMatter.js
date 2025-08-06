@@ -7,7 +7,13 @@ const results = []
 
 fs.createReadStream('../data/subject_matter.csv')
     .pipe(csv())
-    .on('data', (data) => results.push(data))
+    .on('data', (data) => {
+        const entry = [
+            data.EPISODE,
+            data.TITLE
+        ];
+        results.push(entry)
+    })
     .on('end', () => {
         console.log(results);
     });
