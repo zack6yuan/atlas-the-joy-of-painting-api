@@ -17,12 +17,11 @@ fs.createReadStream('../data/colors.csv')
             data.painting_title,
             data.num_colors
         ];
-        // Push data to results array
-        results.push(entry)
+        results.push(entry) // Push data to results array
     })
     .on('end', () => {
-        // Log results to the console
-        console.log(results);
+
+        console.log(results); // Log results to the console
     });
 
 // Need to add the logic to filter by colors

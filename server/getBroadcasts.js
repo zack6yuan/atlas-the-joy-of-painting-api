@@ -6,17 +6,17 @@ const csv = require('csv-parser');
 const results = []
 
 fs.createReadStream('../data/broadcasts.csv')
-    .pipe(csv({ headers: ['title', 'air_date'] }))
+    .pipe(csv({ headers: ['title', 'air_date'] })) // Manage stream output, headers defined
     .on('data', (data) => {
+        // Data being selected / inserted
         const entry = [
             data.title,
             data.air_date
         ]
-        results.push(entry)
+        results.push(entry) // Push data to results array
     })
     .on('end', () => {
-        console.log("")
-        console.log(results);
+        console.log(results); // Log results to the console
     });
 
 // Need to update the data so that every one
