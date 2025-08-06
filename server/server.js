@@ -25,7 +25,7 @@ connection.connect(function(err) {
     if (err) {
         throw err;
     } else {
-        console.log(`SUCCESS --> Connected to database: ${database_name}`);
+        console.log(`SUCCESS --> Connected to database --> ${database_name}`);
     }
 });
 

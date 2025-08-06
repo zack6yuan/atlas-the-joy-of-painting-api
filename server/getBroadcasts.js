@@ -16,7 +16,7 @@ fs.createReadStream('../data/broadcasts.csv')
         results.push(entry) // Push data to results array
     })
     .on('end', () => {
-        console.log(results); // Log results to the console
+        const mysql = `INSERT IGNORE INTO broadcasts (title, air_date)`
     });
 
 // Need to update the data so that every one

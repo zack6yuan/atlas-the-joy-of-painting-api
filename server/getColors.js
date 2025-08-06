@@ -23,12 +23,14 @@ fs.createReadStream('../data/colors.csv')
         const mysql = `INSERT IGNORE INTO colors (color_id, painting_index, painting_title, num_colors) VALUES ?`
         connection.query(mysql, [results], (err, res) => {
             if (err) {
-                console.error(`ERROR --> Failed to load data: ${err}`)
+                console.error(`ERROR --> Failed to load data --> ${err}`)
             } else {
-                console.log("SUCCESS --> Data was loaded into the table: colors")
+                console.log("SUCCESS --> Data was loaded into the table --> colors")
             }
+            console.log("Database operations complete.");
         })
         console.log(results); // Log results to the console
+        connection.end(); // End the connection, and return to prompt
     });
 
 // Need to add the logic to filter by colors
