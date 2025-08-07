@@ -3,12 +3,12 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
-const PORT = 5500;
+const PORT = 3000;
 
 app.get('/', (req, res) => {
     console.log("Success!")
 })
 
-app.listen(5500, () => {
+app.listen(3000, () => {
     console.log(`Listening on port ${PORT}, successfully running.`)
 })
