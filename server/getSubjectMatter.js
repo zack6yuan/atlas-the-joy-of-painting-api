@@ -20,7 +20,7 @@ fs.createReadStream('../data/subject_matter.csv')
     })
     .on('end', () => {
         // Duplicate entries skipped
-        const mysql = `INSERT IGNORE INTO subject_matter(episode, subject_matter, attribute) VALUES ?`
+        const mysql = `INSERT INTO subject_matter(episode, title, attribute) VALUES ?`
         connection.query(mysql, [results], (err, res) => {
             if (err) {
                 console.error(`ERROR --> Failed to load data --> ${err}`) // Error message

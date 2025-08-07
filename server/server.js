@@ -19,6 +19,7 @@ let connection = mysql.createConnection({
     user: 'zackyuan',
     password: 'ETLJoy1.0!',
     database: database_name,
+    // Since i'm on MacOS, socketPath is needed
     socketPath: '/tmp/mysql.sock'
 });
 
