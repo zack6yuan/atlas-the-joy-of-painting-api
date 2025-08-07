@@ -31,13 +31,32 @@ connection.connect(function(err) {
 module.exports = connection;
 
 app.get('/', (req, res) => {
-    console.log("Success!")
-    res.status(200).send("Successfully connected to the API")
+    if (res.statusCode == 200) {
+        res.status(200).json("Successfully connected to the API")
+    }
 })
 
 app.get('/colors', (req, res) => {
     if (res.statusCode == 200) {
-        res.status(200).send("Success")
+        res.status(200).send("Colors")
+    } else if (res.statusCode == 404) {
+        res.status(404).send("ERROR --> Not found")
+    }
+})
+
+app.get('/broadcasts', (req, res) => {
+    if (res.statusCode == 200) {
+        res.status(200).send("Broadcasts")
+    } else if (res.statusCode == 404) {
+        res.status(404).send("ERROR --> Not found")
+    }
+})
+
+app.get('/subject_matter', (req, res) => {
+    if (res.statusCode == 200) {
+        res.status(200).send("Subject Matter")
+    } else if (res.statusCode == 404) {
+        res.status(404).send("ERROR --> Not found")
     }
 })
 
