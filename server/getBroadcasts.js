@@ -7,6 +7,7 @@ const connection = require('./server')
 // Initialize empty results array
 const results = []
 
+// Read selected file
 fs.createReadStream('../data/broadcasts.csv')
     .pipe(csv({ headers: ['title', 'air_date'] })) // Manage stream output, headers defined
     .on('data', (data) => {

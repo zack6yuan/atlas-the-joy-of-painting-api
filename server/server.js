@@ -68,7 +68,6 @@ app.get('/broadcasts', (req, res) => {
 })
 
 // Subject Matter route
-const results = getSubjectMatter()
 app.get('/subject_matter', (req, res) => {
     // Success
     if (res.statusCode == 200) {
