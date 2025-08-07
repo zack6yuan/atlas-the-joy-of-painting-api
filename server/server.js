@@ -12,7 +12,7 @@ let connection = mysql.createConnection({
     user: 'zackyuan',
     password: 'ETLJoy1.0!',
     database: database_name,
-    port: 3306
+    socketPath: '/tmp/mysql.sock'
 });
 
 connection.connect(function(err) {
