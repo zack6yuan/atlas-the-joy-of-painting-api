@@ -3,6 +3,11 @@
 const mysql = require('mysql2');
 const fs = require('fs');
 const path = require('path');
+const express = require('express')
+const PORT = 3000;
+
+const app= express();
+app.use(express.json());
 
 const database_name = "ETL_JOY";
 
@@ -24,3 +29,18 @@ connection.connect(function(err) {
 });
 
 module.exports = connection;
+
+app.get('/', (req, res) => {
+    console.log("Success!")
+    res.status(200).send("Successfully connected to the API")
+})
+
+app.get('/colors', (req, res) => {
+    if (res.statusCode == 200) {
+        res.status(200).send("Success")
+    }
+})
+
+app.listen(3000, () => {
+    console.log(`SUCCESS --> Listening on port --> ${PORT}`)
+})
