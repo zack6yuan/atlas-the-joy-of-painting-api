@@ -6,6 +6,7 @@ const path = require('path');
 const express = require('express')
 const PORT = 3000;
 
+// Initialize app with express
 const app= express();
 app.use(express.json());
 
@@ -20,6 +21,7 @@ let connection = mysql.createConnection({
     socketPath: '/tmp/mysql.sock'
 });
 
+// Connection error handler
 connection.connect(function(err) {
     if (err) {
         throw err;
@@ -28,14 +30,17 @@ connection.connect(function(err) {
     }
 });
 
+// Export the connection
 module.exports = connection;
 
+// Root route
 app.get('/', (req, res) => {
     if (res.statusCode == 200) {
         res.status(200).json("Successfully connected to the API")
     }
 })
 
+// Colors route
 app.get('/colors', (req, res) => {
     if (res.statusCode == 200) {
         res.status(200).send("Colors")
@@ -44,6 +49,7 @@ app.get('/colors', (req, res) => {
     }
 })
 
+// Broadcasts route
 app.get('/broadcasts', (req, res) => {
     if (res.statusCode == 200) {
         res.status(200).send("Broadcasts")
@@ -52,6 +58,7 @@ app.get('/broadcasts', (req, res) => {
     }
 })
 
+// Subject Matter route
 app.get('/subject_matter', (req, res) => {
     if (res.statusCode == 200) {
         res.status(200).send("Subject Matter")
@@ -60,6 +67,7 @@ app.get('/subject_matter', (req, res) => {
     }
 })
 
+// Set the port for the app to listen to
 app.listen(3000, () => {
     console.log(`SUCCESS --> Listening on port --> ${PORT}`)
 })
