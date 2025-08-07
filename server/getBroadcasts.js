@@ -2,7 +2,9 @@
 // Get broadcasts method
 const fs = require('fs');
 const csv = require('csv-parser');
+const connection = require('./server')
 
+// Initialize empty results array
 const results = []
 
 fs.createReadStream('../data/broadcasts.csv')
@@ -16,7 +18,17 @@ fs.createReadStream('../data/broadcasts.csv')
         results.push(entry) // Push data to results array
     })
     .on('end', () => {
-        const mysql = `INSERT IGNORE INTO broadcasts (title, air_date)`
+        const mysql = `INSERT IGNORE INTO broadcasts (title, air_date) VALUES ?`
+        connection.query(mysql, [results], (err, res) => {
+            if (err) {
+                console.error(`ERROR --> Failed to load data --> ${err}`); // Error message
+            } else {
+                console.log("SUCCESS --> Data was loaded into the table --> broadcasts"); // Success message
+            }
+            console.log("Database operations complete");
+        })
+        console.log(results); // Log results to the console
+        connection.end(); // End the connection, and return to prompt
     });
 
 // Need to update the data so that every one

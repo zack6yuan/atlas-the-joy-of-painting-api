@@ -4,7 +4,7 @@ const fs = require('fs');
 const csv = require('csv-parser');
 const connection = require('./server');
 
-// Initialize results array
+// Initialize empty results array
 const results = []
 
 fs.createReadStream('../data/subject_matter.csv')
@@ -21,14 +21,14 @@ fs.createReadStream('../data/subject_matter.csv')
         const mysql = `INSERT IGNORE INTO subject_matter(episode, subject_matter, attribute) VALUES ?`
         connection.query(mysql, [results], (err, res) => {
             if (err) {
-                console.error(`ERROR --> Failed to load data --> ${err}`)
+                console.error(`ERROR --> Failed to load data --> ${err}`) // Error message
             } else {
-                console.log("SUCCESS --> Data was loaded into the table: subject_matter")
+                console.log("SUCCESS --> Data was loaded into the table: subject_matter") // Success message
             }
             console.log("Database operations complete")
         })
-        console.log(results);
-        connection.end()
+        console.log(results); // Log results to the console
+        connection.end(); // End the connection, and return to prompt
     });
 
 // Need to remove all the data that has a 0, 

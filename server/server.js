@@ -1,15 +1,8 @@
 #!/usr/bin/env node
-
 // Server Module
-
-/*
-    mysql --> relational database management system
-    fs --> built-in file system module
-    path --> built-in path module
-    express --> express.js framework
-*/
-
 const mysql = require('mysql2');
+const fs = require('fs');
+const path = require('path');
 
 const database_name = "ETL_JOY";
 
