@@ -6,7 +6,6 @@ const path = require('path');
 const express = require('express')
 const PORT = 3000;
 
-const getSubjectMatter = require('./getSubjectMatter');
 
 // Initialize app with express
 const app= express();
@@ -37,25 +36,33 @@ module.exports = connection;
 
 // Root route
 app.get('/', (req, res) => {
+    // Success
     if (res.statusCode == 200) {
         res.status(200).json("Successfully connected to the API")
+    // Not found
+    } else if (res.statusCode == 404) {
+        res.status(404).send("ERROR --> Not found")
     }
 })
 
 // Colors route
 app.get('/colors', (req, res) => {
+    // Success
     if (res.statusCode == 200) {
         res.status(200).send("Colors")
     } else if (res.statusCode == 404) {
+    // Not found
         res.status(404).send("ERROR --> Not found")
     }
 })
 
 // Broadcasts route
 app.get('/broadcasts', (req, res) => {
+    // Success
     if (res.statusCode == 200) {
         res.status(200).send("Broadcasts")
     } else if (res.statusCode == 404) {
+    // Not found
         res.status(404).send("ERROR --> Not found")
     }
 })
@@ -63,9 +70,11 @@ app.get('/broadcasts', (req, res) => {
 // Subject Matter route
 const results = getSubjectMatter()
 app.get('/subject_matter', (req, res) => {
+    // Success
     if (res.statusCode == 200) {
-        res.status(200).json(results)
+        res.status(200).send("Subject Matter")
     } else if (res.statusCode == 404) {
+    // Not found
         res.status(404).send("ERROR --> Not found")
     }
 })
