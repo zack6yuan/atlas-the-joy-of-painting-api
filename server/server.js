@@ -6,11 +6,14 @@ const path = require('path');
 const express = require('express')
 const PORT = 3000;
 
+// Need to import the modules for populating the database.
+// They may need to be converted into functions to use with the API
 
 // Initialize app with express
 const app= express();
 app.use(express.json());
 
+// Initialize database name
 const database_name = "ETL_JOY";
 
 // Creates a connection to the MySQL database
@@ -50,7 +53,7 @@ app.get('/', (req, res) => {
 app.get('/colors', (req, res) => {
     // Success
     if (res.statusCode == 200) {
-        res.status(200).send("Colors")
+        res.status(200).json(colorsResult)
     } else if (res.statusCode == 404) {
     // Not found
         res.status(404).send("ERROR --> Not found")
