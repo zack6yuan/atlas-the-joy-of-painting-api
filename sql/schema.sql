@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS subject_matter (
 );
 
 CREATE TABLE IF NOT EXISTS colors (
-    color_id INT NOT NULL AUTO INCREMENT PRIMARY KEY,
+    color_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     painting_index INT NOT NULL,
     painting_title VARCHAR(255) NOT NULL,
     num_colors INT NOT NULL
