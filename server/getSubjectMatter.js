@@ -19,6 +19,7 @@ fs.createReadStream('../data/subject_matter.csv')
         results.push(entry) // Push data to results array
     })
     .on('end', () => {
+        // Duplicate entries skipped
         const mysql = `INSERT IGNORE INTO subject_matter(episode, subject_matter, attribute) VALUES ?`
         connection.query(mysql, [results], (err, res) => {
             if (err) {
