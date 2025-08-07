@@ -31,6 +31,6 @@ fs.createReadStream('../data/broadcasts.csv')
         connection.end(); // End the connection, and return to prompt
     });
 
-// Need to update the data so that every one
-// does not say a walk in the woods
-// need to update the key per episode
+// Update: Data is being put into the mysql table
+// The date needs to be split and put in the second column
+// But overall, table is set up corretly

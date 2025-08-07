@@ -8,7 +8,7 @@ const connection = require('./server');
 const results = []
 
 fs.createReadStream('../data/colors.csv')
-    .pipe(csv()) // Manage stream output
+    .pipe(csv({ headers: ['color_id', 'painting_index', 'painting_title', 'num_colors'] })) // Manage stream output, headers defined
     .on('data', (data) => {
         // Data being selected / inserted
         const entry = [
@@ -33,4 +33,5 @@ fs.createReadStream('../data/colors.csv')
         connection.end(); // End the connection, and return to prompt
     });
 
-// Need to add the logic to filter by colors
+// table is set up correctly when using * and DESCRIBE
+// painting title and num colors is not being added to the table correctly.

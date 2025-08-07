@@ -8,7 +8,7 @@ const connection = require('./server');
 const results = []
 
 fs.createReadStream('../data/subject_matter.csv')
-    .pipe(csv()) // Manage stream output
+    .pipe(csv({ headers: ['EPISODE', 'TITLE'] })) // Manage stream output, headers defined
     .on('data', (data) => {
         // Data being selected / inserted
         const entry = [
@@ -31,5 +31,5 @@ fs.createReadStream('../data/subject_matter.csv')
         connection.end(); // End the connection, and return to prompt
     });
 
-// Need to remove all the data that has a 0, 
-// the subject is not part of the episode
+// NodeJS script is working, but no data is being added to the mysql table
+// im currently crying
