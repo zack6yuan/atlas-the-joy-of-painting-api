@@ -13,10 +13,10 @@ fs.createReadStream('../data/colors.csv')
     .on('data', (data) => {
         // Data being selected / inserted
         const entry = [
-            data.color_id,
-            data.painting_index,
-            data.painting_title,
-            data.num_colors
+            `color_id: ${data.color_id}`,
+            `painting_index: ${data.painting_index}`,
+            `img_src: ${data.painting_title}`,
+            `painting_title: ${data.num_colors}`
         ];
         results.push(entry) // Push data to results array
     })

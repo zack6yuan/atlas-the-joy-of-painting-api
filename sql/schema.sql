@@ -12,17 +12,17 @@ DROP TABLE IF EXISTS colors;
 
 CREATE TABLE IF NOT EXISTS broadcasts (
     title VARCHAR(255) NOT NULL PRIMARY KEY,
-    air_date DATE NOT NULL
+    air_date DATE NOT NULL,
+    air_year INT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS subject_matter (
     episode VARCHAR(255) NOT NULL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    attribute INT NOT NULL
+    title VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS colors (
-    color_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    color_id INT NOT NULL AUTO INCREMENT PRIMARY KEY,
     painting_index INT NOT NULL,
     painting_title VARCHAR(255) NOT NULL,
     num_colors INT NOT NULL

@@ -9,17 +9,18 @@ const results = []
 
 // Read selected file
 fs.createReadStream('../data/broadcasts.csv')
-    .pipe(csv({ headers: ['title', 'air_date'] })) // Manage stream output, headers defined
+    .pipe(csv({ headers: ['title', 'air_date', 'air_year'] })) // Manage stream output, headers defined
     .on('data', (data) => {
         // Data being selected / inserted
         const entry = [
             data.title,
-            data.air_date
+            data.air_date,
+            data.air_year
         ]
         results.push(entry) // Push data to results array
     })
     .on('end', () => {
-        const mysql = `INSERT INTO broadcasts (title, air_date) VALUES ?`
+        const mysql = `INSERT INTO broadcasts (title, air_date, air_year) VALUES ?`
         connection.query(mysql, [results], (err, res) => {
             if (err) {
                 console.error(`ERROR --> Failed to load data --> ${err}`); // Error message
