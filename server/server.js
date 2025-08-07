@@ -6,6 +6,8 @@ const path = require('path');
 const express = require('express')
 const PORT = 3000;
 
+const getSubjectMatter = require('./getSubjectMatter');
+
 // Initialize app with express
 const app= express();
 app.use(express.json());
@@ -59,9 +61,10 @@ app.get('/broadcasts', (req, res) => {
 })
 
 // Subject Matter route
+const results = getSubjectMatter()
 app.get('/subject_matter', (req, res) => {
     if (res.statusCode == 200) {
-        res.status(200).send("Subject Matter")
+        res.status(200).json(results)
     } else if (res.statusCode == 404) {
         res.status(404).send("ERROR --> Not found")
     }
