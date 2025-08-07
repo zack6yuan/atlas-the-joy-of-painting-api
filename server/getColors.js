@@ -51,8 +51,7 @@ fs.createReadStream('../data/colors.csv')
     results.push(entry) // Push data to results array
 })
 .on('end', () => {
-    // Duplicate entries skipped
-    const mysql = `INSERT IGNORE INTO colors (color_id, painting_index, painting_title, num_colors) VALUES ?`
+    const mysql = `INSERT INTO colors (color_id, painting_index, painting_title, num_colors) VALUES ?`
     connection.query(mysql, [results], (err, res) => {
         if (err) {
             console.error(`ERROR --> Failed to load data --> ${err}`); // Error message
