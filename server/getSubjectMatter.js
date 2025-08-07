@@ -32,6 +32,3 @@ fs.createReadStream('../data/subject_matter.csv')
         console.log(results); // Log results to the console
         connection.end(); // End the connection, and return to prompt
     });
-
-// NodeJS script is working, but no data is being added to the mysql table
-// im currently crying
