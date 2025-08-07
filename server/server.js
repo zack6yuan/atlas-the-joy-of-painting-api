@@ -8,10 +8,11 @@ const database_name = "ETL_JOY";
 
 // Creates a connection to the MySQL database
 let connection = mysql.createConnection({
+    host: 'localhost',
     user: 'zackyuan',
     password: 'ETLJoy1.0!',
     database: database_name,
-    socketPath: '/tmp/mysql.sock'
+    port: 3306
 });
 
 connection.connect(function(err) {
